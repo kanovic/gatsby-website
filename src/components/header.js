@@ -1,45 +1,84 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React, { useState } from "react"
+import { Link } from "gatsby"
 
-const SiteHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 0;
-  @media (max-width: 450px) {
-    flex-direction: column;
-  }
-`;
+const Header = () => {
+  const [burgerMenu, setBurgermenu] = useState(false)
 
-const NavLink = styled(Link)`
-  color: black;
-  margin-left: 2rem;
-  text-decoration: none;
-  display: inline-block;
-  @media (max-width: 450px) {
-    margin-left: 0;
-    padding: 0 1rem;
+  const toggleBurger = () => {
+    console.log("test")
+    setBurgermenu(!burgerMenu)
   }
-`;
-const HomeLink = styled(NavLink)`
-  margin-left: 0;
-  font-weight: 600;
-  font-size: 1.2rem;
-  @media (max-width: 450px) {
-    margin-bottom: 1rem;
-  }
-`;
 
-const Header = () => (
-  <SiteHeader>
-    <HomeLink to="/">koeneraad.</HomeLink>
-    <nav>
-      <NavLink to="/about/">About</NavLink>
-      <NavLink to="/blog/">Blog</NavLink>
-      <NavLink to="/contact/">Contact</NavLink>
+  return (
+    <nav
+      className="navbar is-transparent is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link className="navbar-item" to="/">
+            <h3 className="title is-4">koeneraad.</h3>
+          </Link>
+
+          <a
+            role="button"
+            className={
+              !burgerMenu
+                ? "navbar-burger burger"
+                : "navbar-burger burger is-active"
+            }
+            id="hamburger"
+            href="#"
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={toggleBurger}
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div
+          id="burger-menu"
+          className={!burgerMenu ? "navbar-menu" : "navbar-menu is-active"}
+        >
+          <div className="navbar-end">
+            <Link to="/about" className="navbar-item">
+              About
+            </Link>
+            <Link to="/blog" className="navbar-item">
+              Blog
+            </Link>
+            <Link to="/contact" className="navbar-item">
+              Contact
+            </Link>
+            <a
+              className="navbar-item"
+              href="https://www.linkedin.com/in/kjzweerts/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="icon">
+                <i className="fab fa-linkedin"></i>
+              </span>
+            </a>
+            <a
+              className="navbar-item"
+              href="https://github.com/kanovic"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="icon">
+                <i className="fab fa-github"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
-  </SiteHeader>
-);
+  )
+}
 
-export default Header;
+export default Header

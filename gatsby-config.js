@@ -9,6 +9,9 @@ module.exports = {
   siteMetadata: {
     title: `koeneraad.com`,
     author: `Koenraad`,
+    description: "Personal Gatsby website about dealing with computer stuff.",
+    url: "https://koeneraad.com",
+    image: "/images/Image.png",
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -21,11 +24,5 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
   ],
-};
+}

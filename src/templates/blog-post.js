@@ -1,21 +1,31 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../layouts/layout";
+import React from "react"
+import { graphql, Link } from "gatsby"
+import Layout from "../layouts/layout"
 
 const BlogTemplate = ({ data }) => {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark
 
   return (
     <Layout>
-      <h1>{post.frontmatter.title}</h1>
-      <small>
-        Posted by {post.frontmatter.author} on {post.frontmatter.date}
-      </small>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Link to="/blog">Go Back</Link>
+      <article>
+        <h1>{post.frontmatter.title}</h1>
+        <small>
+          Posted by {post.frontmatter.author} on {post.frontmatter.date}
+        </small>
+        <Link
+          style={{ margin: "1rem 0", display: "block", color: "black" }}
+          to="/blog"
+        >
+          Go Back
+        </Link>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.html }}
+          style={{ marginBottom: "2rem" }}
+        />
+      </article>
     </Layout>
-  );
-};
+  )
+}
 
 export const postQuery = graphql`
   query BlogPostByPath($path: String!) {
@@ -29,6 +39,6 @@ export const postQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default BlogTemplate;
+export default BlogTemplate
