@@ -1,9 +1,0 @@
-/* About Page - Tab switching */
-
-#tabs-with-content .tab-content {
-  display: none;
-}
-
-#tabs-with-content .tab-content.is-active {
-  display: block;
-}

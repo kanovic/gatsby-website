@@ -2,7 +2,7 @@ const tabs = [
   {
     tabLink: "Me",
     tabContent:
-      "Male, 33 and IT generalist. In my free time I like to play golf and do stuff with computers.",
+      "Male, 33 and IT generalist. In my free time I like to play golf and do stuff with computers. E.g. do cloud engineering in sandbox environments or build web applications with internet technologies like react or just plain vanilla javascript.",
   },
   {
     tabLink: "Blog",
@@ -12,7 +12,7 @@ const tabs = [
   {
     tabLink: "Development",
     tabContent:
-      "I started to develop static websites and web applications for friends and family as a hobby. I have knowledge of HTML, CSS and JavaScript. And I can build simple applications with React. The website you are currently reading is built with my own implementation of Gatsby.",
+      "I started to develop static websites and web applications for friends and family as a hobby. I have knowledge of HTML, CSS and JavaScript. And I can build applications with React. The website you are currently reading is built with my own implementation of Gatsby.",
   },
 ]
 

@@ -1,20 +1,15 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
   siteMetadata: {
     title: `koeneraad.com`,
+    titleTemplate: ``,
     author: `Koenraad`,
     description: "Personal Gatsby website about dealing with computer stuff.",
     url: "https://koeneraad.com",
     image: "/images/Image.png",
+    favicon: "/images/favicon.ico",
+    twitterUsername: "@koeneraad",
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
     {

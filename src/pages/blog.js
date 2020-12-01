@@ -1,39 +1,39 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../layouts/layout"
+import Hero from "../components/hero"
+import SEO from "../components/seo"
 
 const Blog = ({ data }) => (
-  <Layout>
-    <section class="hero mt-6">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">Blog</h1>
-          <h2 class="subtitle">My thoughts</h2>
-        </div>
-      </div>
-    </section>
-    {data.allMarkdownRemark.edges.map(post => (
-      <article
-        style={{ display: "flex", flexDirection: "column" }}
-        key={post.node.id}
-      >
-        <h3>{post.node.frontmatter.title}</h3>
-        <small>
-          Posted by {post.node.frontmatter.author} on{" "}
-          {post.node.frontmatter.date}
-        </small>
-        <Link
-          style={{
-            margin: "1rem 0 2rem 0",
-            color: "black",
-          }}
-          to={post.node.frontmatter.path}
-        >
-          Read More
-        </Link>
-      </article>
-    ))}
-  </Layout>
+  <>
+    <SEO />
+    <Layout>
+      <Hero title="Blog" subtitle="My thoughts" className="hero mt-6" />
+      <section>
+        {data.allMarkdownRemark.edges.map(post => (
+          <article className="mb-6" key={post.node.id}>
+            <h3 className="title is-5">{post.node.frontmatter.title}</h3>
+            <span className="tag mr-3">
+              {`Author: ${post.node.frontmatter.author}`}
+            </span>
+            <span className="tag mr-3">
+              {`Date: ${post.node.frontmatter.date}`}
+            </span>
+            <div className="mt-5">
+              <button class="button is-ghost is-small">
+                <Link
+                  style={{ color: "black" }}
+                  to={post.node.frontmatter.path}
+                >
+                  Read More
+                </Link>
+              </button>
+            </div>
+          </article>
+        ))}
+      </section>
+    </Layout>
+  </>
 )
 
 export const pageQuery = graphql`
