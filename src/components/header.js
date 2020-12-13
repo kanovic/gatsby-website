@@ -18,7 +18,7 @@ const Header = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            <h3 className="title is-4">koeneraad.</h3>
+            <img src="/images/KR_Logo.png" alt="koeneraad" />
           </Link>
 
           <a

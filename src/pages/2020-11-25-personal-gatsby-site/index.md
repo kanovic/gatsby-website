@@ -1,8 +1,8 @@
 ---
 path: "/personal-gatsby-website/"
-date: "2020-11-25"
+date: "2020-12-13"
 title: "Personal Gatsby Website"
 author: "Koenraad"
 ---
 
-Rebuild my first Jekyll blog to Gatsby.
+Previous Jekyll version now converted to Gatsby!

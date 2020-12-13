@@ -5,7 +5,7 @@ module.exports = {
     author: `Koenraad`,
     description: "Personal Gatsby website about dealing with computer stuff.",
     url: "https://koeneraad.com",
-    image: "/images/Image.png",
+    image: "/images/KR_Logo.png",
     favicon: "/images/favicon.ico",
     twitterUsername: "@koeneraad",
   },

@@ -1,9 +1,6 @@
 import React, { useState } from "react"
-import SEO from "../components/seo"
+import { SEO, Hero, Tab, tabs } from "../components/index"
 import Layout from "../layouts/layout"
-import Hero from "../components/hero"
-import Tab from "../components/tabs"
-import tabs from "../components/tabContent"
 
 const About = () => {
   const [selected, setSelected] = useState("Me")

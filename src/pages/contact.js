@@ -1,8 +1,6 @@
 import React from "react"
+import { SEO, Hero, Form } from "../components/index"
 import Layout from "../layouts/layout"
-import Hero from "../components/hero"
-import Form from "../components/form"
-import SEO from "../components/seo"
 
 const Contact = () => (
   <>
