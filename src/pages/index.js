@@ -12,7 +12,12 @@ const Home = () => (
             <div className="columns is-vcentered">
               <div className="column is-narrow">
                 <figure class="image is-128x128">
-                  <img src="/images/Image.png" alt="koeneraad golf" />
+                  <img
+                    src="/images/Image.png"
+                    width="128"
+                    height="128"
+                    alt="koeneraad golf"
+                  />
                 </figure>
               </div>
               <div className="column">

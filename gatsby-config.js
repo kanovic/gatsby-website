@@ -3,7 +3,7 @@ module.exports = {
     title: `koeneraad.com`,
     titleTemplate: ``,
     author: `Koenraad`,
-    description: "Personal Gatsby website about dealing with computer stuff.",
+    description: "My website about dealing with computer stuff.",
     url: "https://koeneraad.com",
     image: "/images/KR_Logo.png",
     favicon: "/images/favicon.ico",
@@ -19,5 +19,18 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Koeneraad`,
+        short_name: `Koeneraad`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 }

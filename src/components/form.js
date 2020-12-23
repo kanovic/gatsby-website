@@ -1,20 +1,50 @@
-import React from "react"
+import React, { useState } from "react"
+import { navigate } from "gatsby-link"
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
 
 const Form = () => {
-  const onSubmitHandler = event => {
-    event.preventDefault()
-    alert("Message sent!")
+  const [state, setState] = useState({})
+
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+  const handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert(error))
   }
 
   return (
     <section>
       <form
-        onSubmit={onSubmitHandler}
+        onSubmit={handleSubmit}
         name="contact"
-        method="POST"
+        method="post"
+        action="/thanks/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Dont't fill this out:{" "}
+            <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
         <div class="field">
           <label for="name" class="label">
             Username
@@ -24,6 +54,7 @@ const Form = () => {
                 name="name"
                 type="text"
                 placeholder="Your name"
+                onChange={handleChange}
               />
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
@@ -41,6 +72,7 @@ const Form = () => {
                 name="email"
                 type="email"
                 placeholder="Your email"
+                onChange={handleChange}
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope"></i>
@@ -57,6 +89,7 @@ const Form = () => {
                 name="message"
                 className="textarea"
                 placeholder="Type your message here"
+                onChange={handleChange}
               ></textarea>
             </div>
           </label>
