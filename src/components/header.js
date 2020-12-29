@@ -18,7 +18,12 @@ const Header = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            <img src="/images/KR_Logo.png" alt="koeneraad" />
+            <img
+              width="28"
+              height="28"
+              src="/images/KR_Logo.png"
+              alt="koeneraad"
+            />
           </Link>
 
           <a

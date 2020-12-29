@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, article, image, favicon }) => {
+const SEO = ({ title, description, article, image }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -14,7 +14,6 @@ const SEO = ({ title, description, article, image, favicon }) => {
     titleTemplate,
     siteUrl,
     defaultImage,
-    defaultFavicon,
     twitterUsername,
   } = site.siteMetadata
 
@@ -23,7 +22,6 @@ const SEO = ({ title, description, article, image, favicon }) => {
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
-    favicon: `${siteUrl}${favicon || defaultFavicon}`,
   }
 
   return (
@@ -62,7 +60,6 @@ const SEO = ({ title, description, article, image, favicon }) => {
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous"
       />
-      <link rel="icon" href="/images/favicon.ico" />
     </Helmet>
   )
 }
@@ -78,7 +75,6 @@ const query = graphql`
         defaultImage: image
         defaultDescription: description
         siteUrl: url
-        defaultFavicon: favicon
         twitterUsername
       }
     }
@@ -90,7 +86,6 @@ SEO.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   article: PropTypes.bool,
-  favicon: PropTypes.string,
 }
 
 SEO.defaultProps = {
@@ -98,5 +93,4 @@ SEO.defaultProps = {
   description: null,
   image: null,
   article: false,
-  favicon: null,
 }
